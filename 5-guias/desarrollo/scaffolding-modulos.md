@@ -2,7 +2,7 @@
 
 **Última actualización:** Diciembre 2024
 
-En PHLEXMOD, un módulo es una unidad funcional autocontenida. La forma recomendada y más eficiente de crear módulos es utilizando la herramienta de línea de comandos `phlex`.
+En PHLEXMOD, un módulo es una unidad funcional autocontenida. La forma recomendada y más eficiente de crear módulos es utilizando la herramienta de línea de comandos `phlexmod`.
 
 ## El Comando `make:module`
 
@@ -15,7 +15,7 @@ El comando `make:module` se encarga de todo el trabajo pesado:
 ### Uso Básico
 
 ```bash
-php phlex make:module <nombre_modulo> --scope=<scope>
+./phlexmod make:module <nombre_modulo> --scope=<scope>
 ```
 
 - `<nombre_modulo>`: El nombre de tu módulo en snake_case (ej. `gestion_clientes`)
@@ -34,7 +34,7 @@ Vamos a crear un módulo de prueba llamado `hola_mundo`.
 Desde la raíz de tu proyecto, ejecuta:
 
 ```bash
-php phlex make:module hola_mundo --scope=user
+./phlexmod make:module hola_mundo --scope=user
 ```
 
 La CLI confirmará que se crearon los archivos y que el módulo fue registrado en la base de datos. ¡No necesitas hacer `mkdir` ni `INSERT` manuales!
@@ -66,7 +66,7 @@ if (!defined('PHLEXMOD_CORE_PATH')) die('Acceso denegado');
 Para que el botón "Saludar" funcione, necesitamos un endpoint. Usa la CLI de nuevo:
 
 ```bash
-php phlex make:endpoint hola_mundo saludo --scope=user
+./phlexmod make:endpoint hola_mundo saludo --scope=user
 ```
 
 Esto creará `backend/modules/hola_mundo/endpoints/saludo.api.php`. Edítalo:

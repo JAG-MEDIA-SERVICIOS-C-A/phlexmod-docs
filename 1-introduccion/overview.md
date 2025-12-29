@@ -32,7 +32,7 @@ La seguridad no es una capa opcional. Patrones como la `Zona de Sanitización` s
 
 ### 4. Alta Productividad a través de la Claridad
 
-PHLEXMOD favorece el código explícito sobre la "magia" de la abstracción. Esto, combinado con herramientas como la `phlex-cli`, permite un desarrollo rápido y con menos errores.
+PHLEXMOD favorece el código explícito sobre la "magia" de la abstracción. Esto, combinado con herramientas como la CLI (`phlexmod`), permite un desarrollo rápido y con menos errores.
 
 ## Casos de Uso Típicos
 

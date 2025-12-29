@@ -1,8 +1,8 @@
-# La CLI de Desarrollo (`phlex`)
+# La CLI de Desarrollo (`phlexmod`)
 
 **Última actualización:** Diciembre 2024
 
-`phlex` es tu principal herramienta para automatizar tareas de desarrollo y mantenimiento en un proyecto PHLEXMOD. Utilizarla te ahorrará tiempo y evitará errores manuales.
+`phlexmod` es tu principal herramienta para automatizar tareas de desarrollo y mantenimiento en un proyecto PHLEXMOD. Utilizarla te ahorrará tiempo y evitará errores manuales.
 
 ## Uso Básico
 
@@ -10,10 +10,10 @@ Todos los comandos se ejecutan desde el directorio raíz de tu proyecto.
 
 ```bash
 # Para ver todos los comandos disponibles
-php phlex help
+./phlexmod help
 
 # Sintaxis general
-php phlex <comando> [argumentos] [--opciones]
+./phlexmod <comando> [argumentos] [--opciones]
 ```
 
 ## Comandos Disponibles
@@ -35,7 +35,7 @@ php phlex <comando> [argumentos] [--opciones]
 Esto crea un módulo `inventario` en la carpeta `backend/modules/`.
 
 ```bash
-php phlex make:module inventario --scope=user
+./phlexmod make:module inventario --scope=user
 ```
 
 ### Crear un módulo administrativo
@@ -43,7 +43,7 @@ php phlex make:module inventario --scope=user
 Esto crea un módulo `reportes` dentro del namespace `admin` (en `backend/modules/admin/`).
 
 ```bash
-php phlex make:module reportes --scope=admin
+./phlexmod make:module reportes --scope=admin
 ```
 
 ### Crear un endpoint
@@ -51,7 +51,7 @@ php phlex make:module reportes --scope=admin
 Esto genera el archivo `get_stock.api.php` dentro de la carpeta `endpoints/` del módulo `inventario`.
 
 ```bash
-php phlex make:endpoint inventario get_stock --scope=user
+./phlexmod make:endpoint inventario get_stock --scope=user
 ```
 
 ### Auditar módulos
@@ -59,7 +59,7 @@ php phlex make:endpoint inventario get_stock --scope=user
 Ideal para ejecutar antes de un commit para asegurarte de que no has roto ninguna convención.
 
 ```bash
-php phlex module:health
+./phlexmod module:health
 ```
 
 ---

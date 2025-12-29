@@ -40,7 +40,7 @@ Lee la documentación completa de la arquitectura aquí: **[MIA Architecture Doc
 - **Motor de Módulos Dinámico**: Carga módulos de forma segura basándose en los privilegios del usuario definidos en la base de datos.
 - **Seguridad Multi-capa**: Protección contra XSS, Inyección SQL, CSRF, y encriptación de parámetros sensibles por defecto.
 - **Sistema de Plantillas Nativas**: Separación limpia de la lógica (PHP) y la presentación (PHP/HTML) sin necesidad de un motor de plantillas de terceros. Reutiliza componentes de UI de forma sencilla.
-- **Herramientas de Línea de Comandos (`phlex`)**: Andamiaje para crear módulos, endpoints, gestionar la base de datos y mucho más.
+- **Herramientas de Línea de Comandos (`phlexmod`)**: Andamiaje para crear módulos, endpoints, gestionar la base de datos y mucho más.
 - **Soporte Multi-idioma**: Estructura simple basada en archivos JSON para la internacionalización.
 - **Gestión de Sesiones Segura**: Control de sesiones con medidas de seguridad robustas.
 

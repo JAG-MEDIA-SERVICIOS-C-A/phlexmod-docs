@@ -49,7 +49,7 @@ Cada punto de entrada tiene una "zona de sanitización" obligatoria. No es opcio
 ## ¿Qué incluye PHLEXMOD?
 
 - **Motor de módulos dinámico**: Carga módulos según permisos del usuario (RBAC integrado)
-- **CLI (`phlex`)**: Scaffolding de módulos, endpoints, migraciones
+- **CLI (`phlexmod`)**: Scaffolding de módulos, endpoints, migraciones
 - **Multi-idioma**: 8 idiomas soportados out-of-the-box
 - **WebSockets**: Para notificaciones en tiempo real
 - **Sistema de plantillas nativo**: Sin Blade, sin Twig. PHP puro con separación limpia.
