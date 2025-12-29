@@ -21,9 +21,9 @@ Así que construí **PHLEXMOD**, un framework basado en lo que llamo "Arquitectu
 **Demo en vivo:** <https://phlexmod.jagmedia.com.ve>  
 (Usuario: `demo` / Contraseña: `PhlexDemo2025!`)
 
-**GitHub:** <https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod>
+**Documentación:** <https://github.com/JAG-MEDIA-SERVICIOS-C-A/phlexmod-docs>
 
-No estoy seguro si liberarlo como open source o mantenerlo como producto comercial. Por ahora la documentación está pública.
+El código fuente aún está en evaluación para licenciamiento, pero la documentación y arquitectura están públicas.
 
 ¿Tiene sentido este enfoque? ¿Qué opinan? Críticas constructivas bienvenidas.
 

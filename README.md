@@ -1,9 +1,9 @@
 
 # PHLEXMOD Framework
 
-![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-8892BF.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
+![PHP Version](https://img.shields.io/badge/php-%3E%3D8.2-8892BF.svg)
+![Status](https://img.shields.io/badge/status-beta-orange.svg)
+![Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)
 
 **Un framework PHP pragmático, enfocado en la seguridad y el aislamiento modular.**
 
@@ -50,46 +50,29 @@ Lee la documentación completa de la arquitectura aquí: **[MIA Architecture Doc
 
 Empezar a trabajar con PHLEXMOD es muy sencillo.
 
-1.  **Clona el repositorio:**
-    ```bash
-    git clone https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod.git
-    cd Phlexmod
-    ```
+1. **Prueba la demo en vivo:**
+   Visita [phlexmod.jagmedia.com.ve](https://phlexmod.jagmedia.com.ve) con las credenciales de prueba.
 
-2.  **Instala las dependencias:**
-    (Asegúrate de tener [Composer](https://getcomposer.org/) instalado)
-    ```bash
-    composer install
-    ```
+2. **Explora la documentación:**
+   Lee la [Arquitectura MIA](./MIA_Architecture.md) para entender los principios del framework.
 
-3.  **Configura el núcleo:**
-    Copia `core-config.sample.php` a `core-config.php` y edítalo con los detalles de tu base de datos y entorno.
-    ```bash
-    cp core-config.sample.php core-config.php
-    ```
-
-4.  **Ejecuta el instalador:**
-    Navega en tu navegador al directorio `/installs/` y sigue los pasos para configurar la base de datos y tu usuario administrador.
-
-5.  **¡Listo!**
-    Accede a la URL de tu proyecto para ver la página de inicio de sesión.
+3. **¿Interesado en el código?**
+   El código fuente está en evaluación para licenciamiento. Contáctanos para más información.
 
 ---
 
-## 🤝 Cómo Contribuir
+## 💬 Contacto
 
-¡Las contribuciones son el corazón del código abierto! Estamos abiertos a tus ideas, reportes de bugs y pull requests.
+Estamos abiertos a feedback, sugerencias y consultas sobre el framework.
 
-1.  Lee nuestra **[Guía de Contribución](./CONTRIBUTING.md)** para entender nuestros estándares.
-2.  Reporta un bug o sugiere una mejora abriendo un **[Issue](https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/issues)**.
-3.  ¿Quieres añadir una característica? Haz un **[Fork](https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/fork)** del proyecto y envía un Pull Request.
-
-**Si te gusta la filosofía de PHLEXMOD, ¡considera darle una estrella ⭐ al repositorio!**
+- **Demo:** [phlexmod.jagmedia.com.ve](https://phlexmod.jagmedia.com.ve)
+- **Documentación:** [GitHub - phlexmod-docs](https://github.com/JAG-MEDIA-SERVICIOS-C-A/phlexmod-docs)
+- **Email:** soporte@jag-media.com.ve
 
 ---
 
 ## 📄 Licencia
 
-PHLEXMOD Framework está licenciado bajo la **[Licencia MIT](./LICENSE)**. Eres libre de usarlo, modificarlo y distribuirlo en proyectos personales y comerciales.
+El código fuente de PHLEXMOD está actualmente en evaluación para licenciamiento. La documentación se publica bajo **Creative Commons Attribution 4.0 (CC BY 4.0)**.
 
 &copy; 2025 JAG-MEDIA Servicios, C.A.

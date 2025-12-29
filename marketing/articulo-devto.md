@@ -80,11 +80,11 @@ Puedes probarlo ahora mismo:
 
 ---
 
-## El código
+## Documentación
 
-El proyecto está en GitHub. Aún estoy definiendo el modelo de licencia, pero la documentación y arquitectura están disponibles:
+La arquitectura y documentación están disponibles en GitHub. El código fuente aún está en evaluación para licenciamiento:
 
-🔗 **[GitHub - PHLEXMOD](https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod)**
+🔗 **[Documentación PHLEXMOD](https://github.com/JAG-MEDIA-SERVICIOS-C-A/phlexmod-docs)**
 
 ---
 
