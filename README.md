@@ -31,7 +31,7 @@ MIA no es un patrón teórico, es un conjunto de reglas de desarrollo probadas e
 
 3. **Principio de Seguridad Intrínseca**: La seguridad no es una ocurrencia tardía, es la base. Cada punto de entrada, desde el motor hasta el último endpoint de un módulo, implementa una "Zona de Sanitización" obligatoria, asegurando que ningún dato externo entre al sistema sin ser validado.
 
-Lee la documentación completa de la arquitectura aquí: **[MIA Architecture Document](./docs/MIA_Architecture.md)**
+Lee la documentación completa de la arquitectura aquí: **[MIA Architecture Document](./MIA_Architecture.md)**
 
 ---
 
@@ -67,7 +67,7 @@ Estamos abiertos a feedback, sugerencias y consultas sobre el framework.
 
 - **Demo:** [phlexmod.jagmedia.com.ve](https://phlexmod.jagmedia.com.ve)
 - **Documentación:** [GitHub - phlexmod-docs](https://github.com/JAG-MEDIA-SERVICIOS-C-A/phlexmod-docs)
-- **Email:** soporte@jag-media.com.ve
+- **Email:** <soporte@jag-media.com.ve>
 
 ---
 
