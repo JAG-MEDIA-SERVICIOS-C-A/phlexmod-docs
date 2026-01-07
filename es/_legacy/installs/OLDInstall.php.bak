@@ -1,0 +1,186 @@
+<?php
+/**
+ * Nombre del Archivo: install.php
+ * Descripción: Parámetros de configuración y creación del core-config.php.
+ *
+ * @package    PHLEXMOD-Framework
+ * @subpackage /
+ * @author     JAG-Media Servicios, C.A.
+ * @version    1.0.0
+ * @since      2024-10-25
+ */
+
+// Bloquear re-ejecución del instalador si el sistema ya está configurado
+if (file_exists(__DIR__ . '/../core-config.php')) {
+    http_response_code(403);
+    echo 'Instalador bloqueado: el sistema ya está configurado.';
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $db_host = $_POST['db_host'];
+    $db_port = $_POST['db_port'];
+    $db_database = $_POST['db_database'];
+    $db_user = $_POST['db_user'];
+    $db_pass = $_POST['db_pass'];
+
+    // Guardar configuración en core-config.php
+    $configContent = "<?php\n";
+    $configContent .= "/**\n";
+    $configContent .= " * Nombre del Archivo: core-config.php\n";
+    $configContent .= " * Descripción: Archivo principal de configuración que centraliza las rutas y constantes del framework.\n";
+    $configContent .= " * \n";
+    $configContent .= " * @package    PHLEXMOD-Framework\n";
+    $configContent .= " * @subpackage Configuración\n";
+    $configContent .= " * @autor      JAG-Media Servicios, C.A.\n";
+    $configContent .= " * @version    1.0.0\n";
+    $configContent .= " * @since     ".date('Y-m-d')."\n";
+    $configContent .= " * \n";
+    $configContent .= " * Detalles:\n";
+    $configContent .= " * Este archivo define constantes esenciales para el funcionamiento del framework,\n";
+    $configContent .= " * incluyendo rutas, configuraciones de base de datos, y parámetros de sesión y localización.\n";
+    $configContent .= " */\n";
+    $configContent .= "// URL raíz del sitio\n";
+    $configContent .= "\$urlRoot = \$_SERVER['REQUEST_SCHEME'] . '://' . \$_SERVER['SERVER_NAME'];\n";
+    $configContent .= "// Configuración de identidad\n";
+    $configContent .= "if (!defined('SESSION_NAME_WEB')) { define('SESSION_NAME_WEB', 'SMARTCITY'); }\n";
+    $configContent .= "if (!defined('LOCALE_WEB')) { define('LOCALE_WEB', 'es_VE'); }\n";
+    $configContent .= "if (!defined('TIME_ZONE_WEB')) { define('TIME_ZONE_WEB', 'America/Caracas'); }\n";
+    $configContent .= "if (!defined('TITLE_WEB')) { define('TITLE_WEB', 'Soluciones Inteligentes para Ciudades | SmartCityHub'); }\n";
+    $configContent .= "if (!defined('TITLE_WEB_LOGIN')) { define('TITLE_WEB_LOGIN', 'SmartCityHub - LOGIN'); }\n";
+    $configContent .= "// Rutas de plantillas (header, footer, layout)\n";
+    $configContent .= "if (!defined('TEMPLATE_PATH')) { define('TEMPLATE_PATH', __DIR__ . '/frontend/templates/'); }\n";
+    $configContent .= "// Rutas del framework\n";
+    $configContent .= "if (!defined('FRONTE_PATH')) { define('FRONTE_PATH', __DIR__ . '/frontend/'); }\n";
+    $configContent .= "if (!defined('BACKEND_PATH')) { define('BACKEND_PATH', __DIR__ . '/backend/'); }\n";
+    $configContent .= "if (!defined('CONFIG_PATH')) { define('CONFIG_PATH', __DIR__ . '/backend/settings/'); }\n";
+    $configContent .= "if (!defined('MODULOS_PATH')) { define('MODULOS_PATH', __DIR__ . '/backend/modulos/'); }\n";
+    $configContent .= "if (!defined('MODULO_SETTING_PATH')) { define('MODULO_SETTING_PATH', __DIR__ . '/backend/modulos/settings/'); }\n";
+    $configContent .= "if (!defined('URL')) { define('URL', '/frontend/'); }\n";
+    $configContent .= "if (!defined('ACCESS_USER')) { define('ACCESS_USER', '../backend/settings/acces_user.php'); }\n";
+    $configContent .= "if (!defined('LOGOUT_USER')) { define('LOGOUT_USER', '../backend/settings/logout.php'); }\n";
+    $configContent .= "// JavaScript\n";
+    $configContent .= "if (!defined('MODULO_SETTING_PATH_JS')) { define('MODULO_SETTING_PATH_JS', '/backend/modulos/settings/js/'); }\n";
+    $configContent .= "if (!defined('MODULO_PATH_JS')) { define('MODULO_PATH_JS', '/backend/modulos/'); }\n";
+    $configContent .= "if (!defined('FILE_ENDPOINT')) { define('FILE_ENDPOINT', '/backend/settings/endPoint.php'); }\n";
+    $configContent .= "// Python\n";
+    $configContent .= "if (!defined('PYTHON_SCRIPT')) { define('PYTHON_SCRIPT', __DIR__ . '/resolver_captcha.py'); }\n";
+    $configContent .= "// PostgreSQL\n";
+    $configContent .= "if (!defined('DB_HOST')) { define('DB_HOST', getenv('DB_HOST') ?: '$db_host');}\n";
+    $configContent .= "if (!defined('DB_PORT')) {define('DB_PORT', getenv('DB_PORT') ?: '$db_port');}\n";
+    $configContent .= "if (!defined('DB_DATABASE')) {define('DB_DATABASE', getenv('DB_DATABASE') ?: '$db_database');}\n";
+    $configContent .= "if (!defined('DB_USER')) {define('DB_USER', getenv('DB_USER') ?: '$db_user');}\n";
+    $configContent .= "if (!defined('DB_PASS')) {define('DB_PASS', getenv('DB_PASS') ?: '$db_pass');}\n";
+    $configContent .= "// Encriptación clave de cifrado WEB\n";
+    $configContent .= "if (!defined('PASS_ENCRYPT')) { define('PASS_ENCRYPT', 'tr3w01$$'); }\n";
+    $configContent .= "if (!defined('METHOD_ENCRYPT')) { define('METHOD_ENCRYPT', 'aes-256-cbc'); }\n";
+
+    // Crear el archivo con el contenido de configuración
+    file_put_contents('../core-config.php', $configContent);
+
+    // Establecer los permisos correctos para el archivo y el directorio
+    chmod('../core-config.php', 0644);
+    chown('../core-config.php', 'www-data');
+    chgrp('../core-config.php', 'www-data');
+
+    $directory = dirname(__FILE__).'../';
+    chmod($directory, 0755);
+    chown($directory, 'www-data');
+    chgrp($directory, 'www-data');
+
+    // Verificar si el usuario actual está en el grupo www-data
+    $current_user = trim(shell_exec('whoami'));
+    $groups = shell_exec('groups ' . $current_user);
+
+    if (strpos($groups, 'www-data') === false) {
+        // Agregar el usuario al grupo www-data
+        shell_exec('sudo usermod -aG www-data ' . $current_user);
+    }
+
+    // Verificar requisitos
+    $errors = [];
+    if (!extension_loaded('pgsql')) {
+        $errors[] = "La extensión pgsql no está instalada.";
+    }
+    if (!extension_loaded('pgsql')) {
+        $errors[] = "La extensión pgcrypto no está instalada.";
+    }
+    if (!extension_loaded('pgsql')) {
+        $errors[] = "La extensión PL/pgSQL no está instalada.";
+    }
+    if (!extension_loaded('pgsql')) {
+        $errors[] = "La extensión PostGIS no está instalada.";
+    }
+    if (count($errors) > 0) {
+        session_start();
+if (isset($_POST['lang'])) {
+    $_SESSION['lang'] = $_POST['lang'];
+}
+
+$lang = $_SESSION['lang'] ?? 'es_VE'; // Uso de 'es_VE' por defecto
+require_once __DIR__ . '/../backend/functions.php'; // Funciones simples para traducción
+$translations = loadTranslations($lang);
+
+        include __DIR__ . '/../backend/template.php';
+
+
+// Define los marcadores y sus reemplazos
+    $placeholders = [
+        '___HEADERWELCOME___' => renderTemplate(__DIR__.'/../frontend/templates/install/header_welcome.php'),
+        '___SCRIPTWELCOME___' => renderTemplate(__DIR__.'/../frontend/templates/install/script_welcome.php'),
+        '___FOOTERWELCOME___' => renderTemplate(__DIR__.'/../frontend/templates/install/footer_welcome.php'),
+        '___FORMINSTALL___' => '
+            <div class="alert alert-danger mt-4" role="alert">
+                <h4 class="alert-heading">¡Errores encontrados:!</h4>
+                <p>
+             <ul>' . implode('', array_map(function($error) {
+                return "<li>$error</li>";
+            }, $errors)) . '
+            </ul>
+            </p>
+            </div>
+            <meta http-equiv="refresh" content="5;url=frontend/index.php">
+            <form action="../frontend/index.php" method="get">
+                <button type="submit" class="btn btn-primary">Proceder ahora</button>
+            </form>', // Contenido dinámico
+    ];
+
+      $templateContent = renderTemplate(__DIR__.'/../frontend/templates/install/layout_install.php', compact('translations', 'lang'));
+        echo str_replace(array_keys($placeholders), array_values($placeholders), $templateContent);
+
+    } else {
+        session_start();
+if (isset($_POST['lang'])) {
+    $_SESSION['lang'] = $_POST['lang'];
+}
+
+$lang = $_SESSION['lang'] ?? 'es_VE'; // Uso de 'es_VE' por defecto
+require_once __DIR__ . '/../backend/functions.php'; // Funciones simples para traducción
+$translations = loadTranslations($lang);
+
+include __DIR__ . '/../backend/template.php';
+
+// Define los marcadores y sus reemplazos
+$placeholders = [
+    '___HEADERWELCOME___' => renderTemplate(__DIR__.'/../frontend/templates/install/header_welcome.php'),
+    '___SCRIPTWELCOME___' => renderTemplate(__DIR__.'/../frontend/templates/install/script_welcome.php'),
+    '___FOOTERWELCOME___' => renderTemplate(__DIR__.'/../frontend/templates/install/footer_welcome.php'),
+    '___FORMINSTALL___' => '
+        <div class="alert alert-success mt-4" role="alert">
+            <h4 class="alert-heading">¡Configuración completada con éxito!</h4>
+            <p>¡Tu framework PHLEXMOD-Framework está listo para ser usado!</p>
+            <hr>
+            <p class="mb-0">Serás redirigido en unos segundos...</p>
+        </div>
+        <meta http-equiv="refresh" content="5;url=../frontend/index.php">
+        <form action="frontend/index.php" method="get">
+            <button type="submit" class="btn btn-primary">Proceder ahora</button>
+        </form>', // Contenido dinámico
+];
+
+$templateContent = renderTemplate(__DIR__.'/../frontend/templates/install/layout_install.php', compact('translations', 'lang'));
+echo str_replace(array_keys($placeholders), array_values($placeholders), $templateContent);
+
+    }
+}
+

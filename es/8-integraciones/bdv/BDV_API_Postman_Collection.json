@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "b3e6a4e3-3e1a-4d3a-9a1b-3e5c7f8a9d0b",
+		"name": "BDV API Collection - Producción (Con Puerto 444)",
+		"description": "Colección de pruebas para servicios API BDV (Producción) con puerto 444 explícito.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consulta de Movimientos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "56969F47830B27DF4D70A3802872C54A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cuenta\": \"01020378300000688215\",\n    \"fechaIni\": \"18/12/2025\",\n    \"fechaFin\": \"19/12/2025\",\n    \"tipoMoneda\": \"VES\",\n    \"nroMovimiento\": \"\"\n}"
+				},
+				"url": {
+					"raw": "https://bdvconciliacion.banvenez.com/apis/bdv/consulta/movimientos",
+					"protocol": "https",
+					"host": [
+						"bdvconciliacion",
+						"banvenez",
+						"com"
+					],
+					"path": [
+						"apis",
+						"bdv",
+						"consulta",
+						"movimientos"
+					]
+				},
+				"description": "Consulta de movimientos bancarios."
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta de Saldo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "56969F47830B27DF4D70A3802872C54A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account\": \"01020378300000688215\",\n    \"currency\": \"VES\"\n}"
+				},
+				"url": {
+					"raw": "https://bdvconciliacion.banvenez.com/account/balance",
+					"protocol": "https",
+					"host": [
+						"bdvconciliacion",
+						"banvenez",
+						"com"
+					],
+					"path": [
+						"account",
+						"balance"
+					]
+				},
+				"description": "Consulta de saldo actual."
+			},
+			"response": []
+		},
+		{
+			"name": "Conciliación de Pago (Individual)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "56969F47830B27DF4D70A3802872C54A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cedulaPagador\": \"V15172614\",\n    \"telefonoPagador\": \"04128980409\",\n    \"telefonoDestino\": \"04128980409\",\n    \"referencia\": \"000520008146\",\n    \"fechaPago\": \"19/12/2025\",\n    \"importe\": \"25.00\",\n    \"bancoOrigen\": \"0102\",\n    \"reqCed\": false\n}"
+				},
+				"url": {
+					"raw": "https://bdvconciliacion.banvenez.com/getMovement",
+					"protocol": "https",
+					"host": [
+						"bdvconciliacion",
+						"banvenez",
+						"com"
+					],
+					"path": [
+						"getMovement"
+					]
+				},
+				"description": "Validación de un pago móvil específico."
+			},
+			"response": []
+		},
+		{
+			"name": "Conciliación Masiva (Múltiple)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "56969F47830B27DF4D70A3802872C54A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fechaPago\": \"2025-12-19\",\n    \"bancoOrigen\": \"0102\",\n    \"telefonoCliente\": \"04128980409\"\n}"
+				},
+				"url": {
+					"raw": "https://bdvconciliacion.banvenez.com/api/consulta/consultaMultiple",
+					"protocol": "https",
+					"host": [
+						"bdvconciliacion",
+						"banvenez",
+						"com"
+					],
+					"path": [
+						"api",
+						"consulta",
+						"consultaMultiple"
+					]
+				},
+				"description": "Consulta de todos los pagos recibidos en una fecha para un teléfono específico."
+			},
+			"response": []
+		},
+		{
+			"name": "Vuelto (Devolución de Cambio)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "56969F47830B27DF4D70A3802872C54A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numeroReferencia\": \"559043\",\n    \"montoOperacion\": \"10.00\",\n    \"nacionalidadDestino\": \"V\",\n    \"cedulaDestino\": \"15172614\",\n    \"telefonoDestino\": \"04128980409\",\n    \"bancoDestino\": \"0102\",\n    \"moneda\": \"VES\",\n    \"conceptoPago\": \"Devolucion\"\n}"
+				},
+				"url": {
+					"raw": "https://bdvconciliacion.banvenez.com/api/vuelto",
+					"protocol": "https",
+					"host": [
+						"bdvconciliacion",
+						"banvenez",
+						"com"
+					],
+					"path": [
+						"api",
+						"vuelto"
+					]
+				},
+				"description": "Servicio para realizar devoluciones de cambio (Vuelto)."
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta de Operaciones Salientes (C2P)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "56969F47830B27DF4D70A3802872C54A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cedulaPagador\": \"J298111666\",\n    \"telefonoPagador\": \"04128980409\",\n    \"telefonoDestino\": \"04128980409\",\n    \"referencia\": \"559043\",\n    \"fechaPago\": \"2025-12-23\",\n    \"importe\": \"10.00\",\n    \"bancoOrigen\": \"0102\",\n    \"bancoDestino\": \"0102\"\n}"
+				},
+				"url": {
+					"raw": "https://bdvconciliacion.banvenez.com/getOutMovement",
+					"protocol": "https",
+					"host": [
+						"bdvconciliacion",
+						"banvenez",
+						"com"
+					],
+					"path": [
+						"getOutMovement"
+					]
+				},
+				"description": "Consulta de operaciones salientes (Débitos/C2P)."
+			},
+			"response": []
+		}
+	]
+}

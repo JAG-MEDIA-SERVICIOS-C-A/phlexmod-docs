@@ -1,0 +1,82 @@
+{{Ficha de software
+| nombre = PHLEXMOD Framework
+| logo = 
+| tipo = [[Framework de aplicaciones web|Framework de aplicación web]], [[Sistema de gestión de contenidos|CMS]]
+| autor = JAG-Media Servicios, C.A.
+| desarrollador = JAG-Media Servicios, C.A. y comunidad
+| lanzamiento_inicial = 25 de diciembre de 2025
+| última_versión_estable = 2.0.1
+| última_versión_testing = 
+| género = 
+| escrito_en = [[PHP]], [[JavaScript]]
+| sistema_operativo = [[Multiplataforma]] (servidor web con PHP y PostgreSQL)
+| tamaño = 
+| idioma = Multilingüe
+| estado = Activo
+| licencia = [[Licencia MIT]]
+| web = https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod
+}}
+
+'''PHLEXMOD Framework''' es un [[framework de aplicaciones web]] de [[código abierto]] escrito en [[PHP]], diseñado para la creación de aplicaciones empresariales y sistemas de gestión. Su principal característica es la implementación de la '''Arquitectura de Aislamiento Modular (MIA)''', un patrón de diseño centrado en la seguridad, el aislamiento de componentes y la mantenibilidad a largo plazo.
+
+El proyecto está orientado a ofrecer un equilibrio entre la robustez de las arquitecturas monolíticas y la flexibilidad de los microservicios, facilitando el desarrollo de módulos de negocio independientes que se integran de forma segura en un núcleo central.
+
+== Historia ==
+
+El desarrollo de PHLEXMOD fue iniciado por la empresa venezolana JAG-Media Servicios, C.A. como una solución interna para estandarizar la creación de aplicaciones departamentales. El objetivo era crear una base de código que fuera segura por diseño, fácil de mantener y que permitiera a diferentes equipos trabajar en módulos paralelos sin generar conflictos de dependencias<ref name="manifesto">{{cite web|url=https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/blob/main/MANIFESTO.md|title=PHLEXMOD Project Manifesto|publisher=JAG-Media Servicios|access-date=2025-12-28}}</ref>.
+
+La primera versión estable se lanzó el 25 de diciembre de 2025, tras un proceso de desarrollo enfocado en consolidar la arquitectura del núcleo y las herramientas de seguridad.
+
+== Arquitectura ==
+
+PHLEXMOD se distingue por su arquitectura nativa, denominada '''MIA (Modular Isolation Architecture)'''. Este patrón no sigue los enfoques tradicionales como [[Modelo–vista–controlador|MVC]] de manera estricta, sino que impone un conjunto de reglas propias para garantizar la estabilidad y seguridad del sistema<ref name="mia_doc">{{cite web|url=https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/blob/main/docs/MIA_Architecture.md|title=MIA - Modular Isolation Architecture|publisher=JAG-Media Servicios|access-date=2025-12-28}}</ref>.
+
+=== Principios de MIA ===
+
+La arquitectura MIA se fundamenta en tres principios clave:
+
+* '''Principio de Aislamiento Estricto:''' Cada módulo es una "caja negra" soberana. Posee sus propios [[Endpoint|endpoints]], lógica de negocio y componentes de interfaz, y no puede acceder directamente a los archivos de otros módulos. Esto previene el acoplamiento y facilita las actualizaciones y el mantenimiento.
+
+* '''Principio de Contratos de Interfaz:''' La comunicación entre el motor central y los módulos se realiza a través de "contratos" explícitos. El motor principal (`engine.php`) entrega al cargador de módulos (`ModuleLoader.js`) un objeto de configuración con las rutas y parámetros necesarios para operar, evitando la comunicación directa y no controlada.
+
+* '''Principio de Seguridad Intrínseca:''' La seguridad es un requisito no opcional. Todo punto de entrada de datos, tanto en el motor como en los endpoints de los módulos, debe implementar una '''Zona de Sanitización''', donde las entradas externas son validadas y limpiadas antes de ser utilizadas.
+
+== Características Principales ==
+
+* '''Motor de Módulos Dinámico:''' Carga módulos de forma segura basándose en los privilegios del usuario.
+* '''Seguridad Multi-capa:''' Incluye sanitización de entradas, [[Cifrado|encriptación]] de parámetros, validación de privilegios a nivel de base de datos y protección contra [[Cross-site scripting|XSS]] y [[Inyección SQL|inyección SQL]].
+* '''Sistema de Plantillas:''' Separación de la lógica PHP y la presentación [[HTML]].
+* '''Multi-idioma:''' Soporte para traducciones a través de archivos [[JSON]].
+* '''Gestión de Sesiones Segura:''' Control de sesiones de usuario con medidas de seguridad.
+
+== Ecosistema de Desarrollo ==
+
+PHLEXMOD incluye un conjunto de herramientas para facilitar el ciclo de vida del desarrollo.
+
+* '''Project Manager:''' Una herramienta para el análisis de progreso automatizado y la generación de reportes sobre el estado del proyecto<ref name="pm">{{cite web|url=https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/blob/main/projectmanager/README.md|title=Project Manager Tool|publisher=JAG-Media Servicios|access-date=2025-12-28}}</ref>.
+* '''Herramientas de CLI:''' Un conjunto de comandos para la creación de módulos, endpoints y otras tareas de mantenimiento.
+* '''Suite de Pruebas:''' El framework está configurado para pruebas automatizadas utilizando [[PHPUnit]].
+
+== Licencia y Contribuciones ==
+
+PHLEXMOD se distribuye bajo la permisiva [[Licencia MIT]], lo que permite su uso en proyectos comerciales y privados. El proyecto está abierto a contribuciones de la comunidad, siguiendo las guías y estándares de calidad definidos en su repositorio oficial<ref name="contributing">{{cite web|url=https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/blob/main/CONTRIBUTING.md|title=Contributing Guidelines|publisher=JAG-Media Servicios|access-date=2025-12-28}}</ref>.
+
+== Véase También ==
+* [[Framework de aplicaciones web]]
+* [[PHP]]
+* [[Arquitectura de software]]
+* [[Seguridad informática]]
+
+== Referencias ==
+<!-- Para su publicación en Wikipedia, este artículo necesita referencias de fuentes secundarias independientes y fiables que demuestren su notabilidad. -->
+{{listaref}}
+
+== Enlaces Externos ==
+* {{Official website|https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod|PHLEXMOD Framework}}
+* {{GitHub|JAG-MEDIA-SERVICIOS-C-A/Phlexmod|Repositorio Oficial}}
+* {{Documentation|https://github.com/JAG-MEDIA-SERVICIOS-C-A/Phlexmod/tree/main/docs|Documentación para Desarrolladores}}
+
+[[Categoría:Frameworks PHP]]
+[[Categoría:Software de 2025]]
+[[Categoría:Software libre]]
+[[Categoría:Herramientas de desarrollo web]]

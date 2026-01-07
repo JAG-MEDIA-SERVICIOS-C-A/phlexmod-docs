@@ -1,0 +1,25 @@
+
+BiopagoBDV Soporte Integracion Correos
+Archivos adjuntos
+vie, 5 dic, 9:13 (hace 3 días)
+para yenferlin_rico, manuel_roades, integracion, mí
+
+Estimado cliente, nos complace su interés en integrar el botón de pago para compras realizadas a través de internet en su sitio web. Por favor revisar detalladamente los archivos adjunto pues han presentado cambios.
+
+ En esté correo se anexan 2 archivos:
+
+Botón de Pago: Que cuenta con una introducción al producto, sus versiones, la descripción del botón de pago como tal, el flujo de la transacción, la ventaja del botón de pago contra el resto y como realizar la integración. Así como los pasos para las pruebas de calidad en donde va a encontrar los casos que se pueden presentar y como recrearlos en el ambiente de calidad.
+Cedulas-calidad: este es el listado de aquellas cedulas que se han puesto a su disposición para la realización de las pruebas.
+Agradecemos su interés y le recordamos que cualquier duda que presente se puede comunicar con el equipo de integración que está indicado en la documentación.
+
+ El afiliado provisional es: 72773438 y la contraseña fue enviada al correo: jagmediaserviciosca@gmail.com. El correo le debe llegar de la cuenta biodemo@biopagobdv.com
+
+ Al realizar la pruebas recuerde que para probar con personas juridicas, debe ingresar tanto el rif como la cedula del pagador. El rif puede ser cualquiera, pero la cedula debe ser una de las de la lista, así mismo el codigo de autorización a utilizar en las pruebas para jurídicos es: 11111111.
+
+Para pruebas de pagos de personas naturales, si va a integrar mediante API Rest, el valor de authenticationMethodId debe ser 4 (solo para el ambiente de pruebas) y el código le llegará via e-mail al correo ingresado al momento de la creación del pago.
+
+Ante cualquier pregunta no dude en contactarnos,
+
+Saludos cordiales
+Servicio BiopagoBDV
+Integración
