@@ -1,12 +1,14 @@
 # PHLEXMOD Overview
 
-**Last updated:** December 2024
+**Last updated:** January 2026
 
 ## What is PHLEXMOD?
 
 PHLEXMOD is a PHP framework that implements the **Modular Isolation Architecture (MIA)**. It is designed for developers looking to build robust, secure, and maintainable enterprise applications without the overhead of traditional frameworks.
 
 Its philosophy centers on returning control to the developer, prioritizing code clarity and long-term stability.
+
+Architecturally, PHLEXMOD follows the MIA-C4I pattern: modules form the "Body" of the system, while the database acts as the "Command Center", concentrating command, control and intelligence. The engine itself behaves as an interpreter over that data.
 
 ## Key Concepts
 

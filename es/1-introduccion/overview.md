@@ -1,8 +1,8 @@
 # Visión General de PHLEXMOD (MIA-C4I)
 
-**Versión:** 2.1 (MIA-C4I Hybrid)
-**Kernel:** PostgreSQL 10+
-**Hardware:** PHP 8.4
+**Versión:** 2.x (MIA-C4I)
+**Kernel:** PostgreSQL (RDBMS)
+**Hardware:** PHP 8.x
 
 ## ¿Qué es PHLEXMOD?
 
@@ -14,9 +14,9 @@ PHLEXMOD no es un framework PHP tradicional; es un **Sistema Operativo de Aplica
 Cada módulo en PHLEXMOD es un territorio físico soberano. No hay "autocarga" mágica de clases entre módulos. Si un módulo falla, el resto del sistema sigue operando. Es **Hardware Lógico** intercambiable.
 
 ### 2. C4I (Command, Control, Intelligence) - El Alma
-La base de datos (PostgreSQL) es la única fuente de verdad.
-- **Command:** Define qué módulos existen (`setting_modules`).
-- **Control:** Define quién puede entrar (`setting_privilege_user`).
+La base de datos es la única fuente de verdad.
+- **Command:** Define qué módulos existen y sus capacidades.
+- **Control:** Define quién puede entrar y qué puede hacer.
 - **Intelligence:** Centraliza la lógica de negocio crítica.
 
 ### 3. Modelo de Materia Oscura
