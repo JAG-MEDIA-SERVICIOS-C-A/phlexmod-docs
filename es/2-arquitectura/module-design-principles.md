@@ -1,6 +1,6 @@
 # Principios de Diseño de Módulos
 
-*Última actualización: Diciembre 2024*
+*Última actualización: Enero 2026*
 
 Además de la estructura técnica de un módulo, es crucial seguir principios de diseño que aseguren la mantenibilidad y escalabilidad del sistema. Esta guía explica la filosofía recomendada para organizar la lógica de negocio en PHLEXMOD.
 
@@ -86,7 +86,7 @@ Cada módulo debe mantener una separación clara de responsabilidades:
 
 | Capa | Ubicación | Responsabilidad |
 | ---- | --------- | --------------- |
-| **Interfaz** | `ui/` | Solo presentación HTML/PHP. No lógica de negocio |
+| **Interfaz** | `ui/` | Solo plantillas HTML inertes. Sin PHP, sin JS ni CSS inline |
 | **Comunicación** | `endpoints/*.api.php` | Punto de entrada AJAX. Valida y responde JSON |
 | **Lógica** | `endpoints/*.logic.php` | Procesa datos y aplica reglas de negocio |
 | **Datos** | `endpoints/*.db.php` | Abstracción de BD. SQL y operaciones CRUD |
