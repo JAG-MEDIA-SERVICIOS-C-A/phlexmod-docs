@@ -1,6 +1,6 @@
 # La CLI de Desarrollo (`phlexmod`)
 
-**Última actualización:** Diciembre 2024
+**Última actualización:** Enero 2026
 
 `phlexmod` es tu principal herramienta para automatizar tareas de desarrollo y mantenimiento en un proyecto PHLEXMOD. Utilizarla te ahorrará tiempo y evitará errores manuales.
 
@@ -25,6 +25,8 @@ Todos los comandos se ejecutan desde el directorio raíz de tu proyecto.
 | `make:endpoint` | Genera un archivo de API seguro dentro de un módulo existente |
 | `module:health` | Audita todos los módulos para verificar estructura y registro en BD |
 | `headers:scan` | Escanea archivos para estandarizar encabezados de licencia |
+| `locale:audit` | Lista claves de traducción usadas/no usadas en código y locales |
+| `locale:sync` | Propaga nuevas claves desde es_VE.json al resto de locales |
 
 ---
 

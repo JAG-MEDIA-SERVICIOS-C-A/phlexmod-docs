@@ -1,64 +1,66 @@
-> ⚠️ **TRANSLATION PENDING:** This document is currently in Spanish. Contributions to translate it to English are welcome.
+# PHLEXMOD Development CLI (`phlexmod`)
 
-# La CLI de Desarrollo (`phlexmod`)
+**Last updated:** January 2026
 
-**Última actualización:** Diciembre 2024
+The `phlexmod` tool is the main way to automate development and maintenance tasks in a PHLEXMOD project. Using it reduces manual work and avoids human error.
 
-`phlexmod` es tu principal herramienta para automatizar tareas de desarrollo y mantenimiento en un proyecto PHLEXMOD. Utilizarla te ahorrará tiempo y evitará errores manuales.
+The CLI talks to the MIA-C4I Engine as an interpreter for your commands, while the database remains the Command Center that governs privileges and configuration.
 
-## Uso Básico
+## Basic Usage
 
-Todos los comandos se ejecutan desde el directorio raíz de tu proyecto.
+All commands are executed from the root directory of your project.
 
 ```bash
-# Para ver todos los comandos disponibles
+# List all available commands
 ./phlexmod help
 
-# Sintaxis general
-./phlexmod <comando> [argumentos] [--opciones]
+# General syntax
+./phlexmod <command> [arguments] [--options]
 ```
 
-## Comandos Disponibles
+## Available Commands
 
-| Comando | Descripción |
+| Command | Description |
 | ------- | ----------- |
-| `help` | Muestra la lista de todos los comandos disponibles y cómo usarlos |
-| `make:module` | Crea la estructura completa de un nuevo módulo y lo registra en la base de datos |
-| `make:endpoint` | Genera un archivo de API seguro dentro de un módulo existente |
-| `module:health` | Audita todos los módulos para verificar estructura y registro en BD |
-| `headers:scan` | Escanea archivos para estandarizar encabezados de licencia |
+| `help` | Shows the list of all available commands and how to use them |
+| `make:module` | Creates the full structure of a new module and registers it in the database |
+| `make:endpoint` | Generates a secure API file inside an existing module |
+| `module:health` | Audits all modules to verify structure and registration in the DB |
+| `headers:scan` | Scans files to standardize license headers |
+| `locale:audit` | Lists translation keys that are used/unused in code and locale files |
+| `locale:sync` | Propagates new keys from es_VE.json to the rest of the locales |
 
 ---
 
-## Ejemplos de Uso
+## Usage Examples
 
-### Crear un módulo de usuario
+### Create a user-scope module
 
-Esto crea un módulo `inventario` en la carpeta `backend/modules/`.
+This creates a module named `inventario` inside the `backend/modules/` folder.
 
 ```bash
 ./phlexmod make:module inventario --scope=user
 ```
 
-### Crear un módulo administrativo
+### Create an admin module
 
-Esto crea un módulo `reportes` dentro del namespace `admin` (en `backend/modules/admin/`).
+This creates a module named `reportes` inside the `admin` namespace (in `backend/modules/admin/`).
 
 ```bash
 ./phlexmod make:module reportes --scope=admin
 ```
 
-### Crear un endpoint
+### Create an endpoint
 
-Esto genera el archivo `get_stock.api.php` dentro de la carpeta `endpoints/` del módulo `inventario`.
+This generates the `get_stock.api.php` file inside the `endpoints/` folder of the `inventario` module.
 
 ```bash
 ./phlexmod make:endpoint inventario get_stock --scope=user
 ```
 
-### Auditar módulos
+### Audit modules
 
-Ideal para ejecutar antes de un commit para asegurarte de que no has roto ninguna convención.
+Recommended before committing changes, to ensure you have not broken any MIA-C4I or structural conventions.
 
 ```bash
 ./phlexmod module:health
