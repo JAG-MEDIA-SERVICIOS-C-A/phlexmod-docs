@@ -35,6 +35,25 @@ This pattern directly violates the **Strict Isolation Principle** of the MIA arc
 
 ---
 
+## The Concept: JS-Defined Modularity (MIA-C4I)
+
+Unlike the traditional MVC pattern where the Controller orchestrates the View, in PHLEXMOD **modularity and namespace are defined exclusively by the JavaScript layer** in conjunction with data communication.
+
+The structure is not "Model-View-Controller", but **Command-Resource-Data**:
+
+1.  **Command (JS):** The JS file (`modAdminUsuarios`) is the "Driver". It defines the namespace, configuration, and orchestrates everything.
+2.  **Data (Endpoints):** The communication and query layer. Responds to JS.
+3.  **Resource (UI):** Inert templates. **They have no namespace**. They are simple HTML files loaded on demand by the JS.
+
+### Why "The UI has no Namespace"
+
+Files in `ui/` are passive resources. They don't know who they are or where they are. It is the JS file that decides:
+*"Load the resource `modal.create.ui.php` from `PATH_UI` and inject it into the DOM".*
+
+This ensures that the interface is **100% inert** and decoupled from logic.
+
+---
+
 ## The Solution: Normalization with Namespaces
 
 The recommended strategy in PHLEXMOD is **normalization**: each business capability should live in its own sovereign module.
@@ -86,10 +105,10 @@ Each module must keep a clear separation of responsibilities:
 
 | Layer | Location | Responsibility |
 | ----- | -------- | -------------- |
-| **Interface** | `ui/` | Pure inert HTML templates. No PHP, no JS and no inline CSS |
-| **Communication** | `endpoints/*.api.php` | AJAX entry point. Validates input and returns JSON |
-| **Logic** | `endpoints/*.logic.php` | Processes data and applies business rules |
-| **Data** | `endpoints/*.db.php` | DB abstraction. SQL and CRUD operations |
+| **Driver (Namespace)** | `js/*.js` | **Defines the Module**. Orchestrates UI and Data. |
+| **Resource (Inert)** | `ui/` | Dumb HTML templates. Loaded by JS. |
+| **Communication** | `endpoints/*.api.php` | JSON API. Query and Transaction. |
+| **Logic/Data** | `endpoints/*.php` | Business rules and SQL. |
 
 ---
 

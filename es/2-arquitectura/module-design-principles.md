@@ -35,6 +35,25 @@ Este patrón viola directamente el **Principio de Aislamiento Estricto** de la a
 
 ---
 
+## El Concepto: Modularidad Definida por JS (MIA-C4I)
+
+A diferencia del patrón MVC tradicional donde el Controlador orquesta la Vista, en PHLEXMOD la **modularidad y el namespace son definidos exclusivamente por la capa JavaScript** en conjunto con la comunicación de datos.
+
+La estructura no es "Modelo-Vista-Controlador", sino **Comando-Recurso-Datos**:
+
+1.  **Comando (JS):** El archivo JS (`modAdminUsuarios`) es el "Driver". Define el namespace, la configuración y orquesta todo.
+2.  **Datos (Endpoints):** La capa de comunicación y consulta. Responde al JS.
+3.  **Recurso (UI):** Plantillas inertes. **No tienen namespace**. Son simples archivos HTML cargados bajo demanda por el JS.
+
+### Por qué "La UI no tiene Namespace"
+
+Los archivos en `ui/` son recursos pasivos. No saben quiénes son ni dónde están. Es el archivo JS quien decide:
+*"Cargar el recurso `modal.create.ui.php` desde `PATH_UI` e inyectarlo en el DOM".*
+
+Esto asegura que la interfaz sea **100% inerte** y desacoplada de la lógica.
+
+---
+
 ## La Solución: Normalización con Namespaces
 
 La estrategia recomendada en PHLEXMOD es la **normalización**: cada funcionalidad de negocio debe vivir en su propio módulo soberano.
@@ -86,10 +105,10 @@ Cada módulo debe mantener una separación clara de responsabilidades:
 
 | Capa | Ubicación | Responsabilidad |
 | ---- | --------- | --------------- |
-| **Interfaz** | `ui/` | Solo plantillas HTML inertes. Sin PHP, sin JS ni CSS inline |
-| **Comunicación** | `endpoints/*.api.php` | Punto de entrada AJAX. Valida y responde JSON |
-| **Lógica** | `endpoints/*.logic.php` | Procesa datos y aplica reglas de negocio |
-| **Datos** | `endpoints/*.db.php` | Abstracción de BD. SQL y operaciones CRUD |
+| **Driver (Namespace)** | `js/*.js` | **Define el Módulo**. Orquesta UI y Datos. |
+| **Recurso (Inerte)** | `ui/` | Plantillas HTML mudas. Cargadas por el JS. |
+| **Comunicación** | `endpoints/*.api.php` | API JSON. Consulta y Transacción. |
+| **Lógica/Datos** | `endpoints/*.php` | Reglas de negocio y SQL. |
 
 ---
 
